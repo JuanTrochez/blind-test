@@ -1,1 +1,10 @@
 C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\bin\Debug\BlindTest.exe.config
+C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\bin\Debug\BlindTest.exe
+C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\bin\Debug\BlindTest.pdb
+C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\BlindTest.csprojResolveAssemblyReference.cache
+C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\BlindTest.Form1.resources
+C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\BlindTest.Properties.Resources.resources
+C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\BlindTest.csproj.GenerateResource.Cache
+C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\BlindTest.exe
+C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\BlindTest.pdb
+C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\BlindTest.userController.game.resources
