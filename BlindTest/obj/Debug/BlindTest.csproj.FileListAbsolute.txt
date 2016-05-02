@@ -8,3 +8,5 @@ C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\Blin
 C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\BlindTest.exe
 C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\BlindTest.pdb
 C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\BlindTest.userController.game.resources
+C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\Interop.WMPLib.dll
+C:\Users\juant\Dropbox\docs\cours\C#\projects\BlindTest\BlindTest\obj\Debug\BlindTest.csproj.ResolveComReference.cache
