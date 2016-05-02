@@ -28,6 +28,9 @@ namespace BlindTest
             Game game = new Game();
             game.Dock = DockStyle.Fill;
             this.Controls.Add(game);
+            game.BringToFront();
+            //this.Hide();
+
         }
     }
 }
