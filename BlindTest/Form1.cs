@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BlindTest.userController;
 
 namespace BlindTest
 {
@@ -19,6 +20,16 @@ namespace BlindTest
 
         private void label1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void play_Click(object sender, EventArgs e)
+        {
+            Game game = new Game();
+            game.Dock = DockStyle.Fill;
+            this.Controls.Add(game);
+            game.BringToFront();
+            //this.Hide();
 
         }
     }

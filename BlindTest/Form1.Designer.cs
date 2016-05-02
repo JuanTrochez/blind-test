@@ -70,6 +70,7 @@
             this.play.TabIndex = 1;
             this.play.Text = "Jouer";
             this.play.UseVisualStyleBackColor = false;
+            this.play.Click += new System.EventHandler(this.play_Click);
             // 
             // scores
             // 
@@ -92,7 +93,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(141)))), ((int)(((byte)(129)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1096, 582);
+            this.ClientSize = new System.Drawing.Size(1096, 618);
             this.Controls.Add(this.scores);
             this.Controls.Add(this.play);
             this.Controls.Add(this.appName);
