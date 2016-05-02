@@ -14,12 +14,14 @@ namespace BlindTest.userController
     {
         private WMPLib.WindowsMediaPlayer wplayer;
         private Musique music;
+        private string reponse = "";
         private Random getrandom = new Random();
 
         public Game()
         {
             InitializeComponent();
             music = new Musique();
+            onStartMusic();
         }
 
         public async void onStartMusic()
@@ -36,6 +38,7 @@ namespace BlindTest.userController
             wplayer.controls.play();
 
             await playForSomeSeconds();
+            validateChoice_Click(this, EventArgs.Empty);
         }
 
         async Task playForSomeSeconds()
@@ -58,19 +61,57 @@ namespace BlindTest.userController
             }
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void validateChoice_Click(object sender, EventArgs e)
         {
+            if(reponse == music.ListMusic[music.OnPlay])
+            {
+                goodResponse.Show();
+            }else
+            {
+                wrongAnswer.Show();
+            }
 
+            music.ListMusic.RemoveAt(music.OnPlay);
+            wplayer.controls.stop();
+
+            validateChoice.Hide();
+            button1.Show();
         }
 
-        private void progressTimer_Move(object sender, EventArgs e)
+        //Bouton suivant
+        private void button1_Click(object sender, EventArgs e)
         {
+            if(goodResponse.Visible == true)
+            {
+                goodResponse.Hide();
+            }else
+            {
+                wrongAnswer.Hide();
+            }
 
+            button1.Hide();
+            validateChoice.Show();
+            onStartMusic();
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void musiqueChoice1_CheckedChanged(object sender, EventArgs e)
         {
+            reponse = musiqueChoice1.Text;
+        }
 
+        private void musiqueChoice2_CheckedChanged(object sender, EventArgs e)
+        {
+            reponse = musiqueChoice1.Text;
+        }
+
+        private void musiqueChoice3_CheckedChanged(object sender, EventArgs e)
+        {
+            reponse = musiqueChoice1.Text;
+        }
+
+        private void musiqueChoice4_CheckedChanged(object sender, EventArgs e)
+        {
+            reponse = musiqueChoice1.Text;
         }
     }
 }

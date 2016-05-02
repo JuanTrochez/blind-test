@@ -69,30 +69,30 @@
             this.validateChoice.Font = new System.Drawing.Font("Verdana", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.validateChoice.ForeColor = System.Drawing.Color.White;
             this.validateChoice.Location = new System.Drawing.Point(603, 682);
-            this.validateChoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.validateChoice.Margin = new System.Windows.Forms.Padding(4);
             this.validateChoice.Name = "validateChoice";
             this.validateChoice.Size = new System.Drawing.Size(248, 54);
             this.validateChoice.TabIndex = 2;
             this.validateChoice.Text = "Valider";
             this.validateChoice.UseVisualStyleBackColor = false;
+            this.validateChoice.Click += new System.EventHandler(this.validateChoice_Click);
             // 
             // progressTimer
             // 
             this.progressTimer.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.progressTimer.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.progressTimer.Location = new System.Drawing.Point(389, 439);
-            this.progressTimer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressTimer.Margin = new System.Windows.Forms.Padding(4);
             this.progressTimer.Name = "progressTimer";
             this.progressTimer.Size = new System.Drawing.Size(667, 16);
             this.progressTimer.TabIndex = 3;
-            this.progressTimer.Move += new System.EventHandler(this.progressTimer_Move);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(389, 78);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(667, 341);
             this.pictureBox1.TabIndex = 4;
@@ -109,7 +109,7 @@
             this.musiqueChoice1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.musiqueChoice1.ForeColor = System.Drawing.Color.White;
             this.musiqueChoice1.Location = new System.Drawing.Point(389, 485);
-            this.musiqueChoice1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.musiqueChoice1.Margin = new System.Windows.Forms.Padding(4);
             this.musiqueChoice1.MaximumSize = new System.Drawing.Size(267, 0);
             this.musiqueChoice1.MinimumSize = new System.Drawing.Size(267, 0);
             this.musiqueChoice1.Name = "musiqueChoice1";
@@ -119,20 +119,20 @@
             this.musiqueChoice1.Text = "Musique 1";
             this.musiqueChoice1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.musiqueChoice1.UseVisualStyleBackColor = false;
-            this.musiqueChoice1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.musiqueChoice1.CheckedChanged += new System.EventHandler(this.musiqueChoice1_CheckedChanged);
             // 
             // musiqueChoice2
             // 
             this.musiqueChoice2.Appearance = System.Windows.Forms.Appearance.Button;
             this.musiqueChoice2.AutoSize = true;
-            this.musiqueChoice2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
+            this.musiqueChoice2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.musiqueChoice2.CausesValidation = false;
             this.musiqueChoice2.FlatAppearance.BorderSize = 0;
             this.musiqueChoice2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.musiqueChoice2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.musiqueChoice2.ForeColor = System.Drawing.Color.White;
             this.musiqueChoice2.Location = new System.Drawing.Point(789, 485);
-            this.musiqueChoice2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.musiqueChoice2.Margin = new System.Windows.Forms.Padding(4);
             this.musiqueChoice2.MaximumSize = new System.Drawing.Size(267, 0);
             this.musiqueChoice2.MinimumSize = new System.Drawing.Size(267, 0);
             this.musiqueChoice2.Name = "musiqueChoice2";
@@ -142,6 +142,7 @@
             this.musiqueChoice2.Text = "Musique 2";
             this.musiqueChoice2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.musiqueChoice2.UseVisualStyleBackColor = false;
+            this.musiqueChoice2.CheckedChanged += new System.EventHandler(this.musiqueChoice2_CheckedChanged);
             // 
             // musiqueChoice4
             // 
@@ -154,7 +155,7 @@
             this.musiqueChoice4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.musiqueChoice4.ForeColor = System.Drawing.Color.White;
             this.musiqueChoice4.Location = new System.Drawing.Point(789, 569);
-            this.musiqueChoice4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.musiqueChoice4.Margin = new System.Windows.Forms.Padding(4);
             this.musiqueChoice4.MaximumSize = new System.Drawing.Size(267, 0);
             this.musiqueChoice4.MinimumSize = new System.Drawing.Size(267, 0);
             this.musiqueChoice4.Name = "musiqueChoice4";
@@ -164,6 +165,7 @@
             this.musiqueChoice4.Text = "Musique 4";
             this.musiqueChoice4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.musiqueChoice4.UseVisualStyleBackColor = false;
+            this.musiqueChoice4.CheckedChanged += new System.EventHandler(this.musiqueChoice4_CheckedChanged);
             // 
             // musiqueChoice3
             // 
@@ -176,7 +178,7 @@
             this.musiqueChoice3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.musiqueChoice3.ForeColor = System.Drawing.Color.White;
             this.musiqueChoice3.Location = new System.Drawing.Point(389, 569);
-            this.musiqueChoice3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.musiqueChoice3.Margin = new System.Windows.Forms.Padding(4);
             this.musiqueChoice3.MaximumSize = new System.Drawing.Size(267, 0);
             this.musiqueChoice3.MinimumSize = new System.Drawing.Size(267, 0);
             this.musiqueChoice3.Name = "musiqueChoice3";
@@ -186,6 +188,7 @@
             this.musiqueChoice3.Text = "Musique 3";
             this.musiqueChoice3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.musiqueChoice3.UseVisualStyleBackColor = false;
+            this.musiqueChoice3.CheckedChanged += new System.EventHandler(this.musiqueChoice3_CheckedChanged);
             // 
             // goodResponse
             // 
@@ -194,7 +197,7 @@
             this.goodResponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goodResponse.ForeColor = System.Drawing.Color.White;
             this.goodResponse.Location = new System.Drawing.Point(389, 630);
-            this.goodResponse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.goodResponse.Margin = new System.Windows.Forms.Padding(4);
             this.goodResponse.Name = "goodResponse";
             this.goodResponse.Size = new System.Drawing.Size(667, 23);
             this.goodResponse.TabIndex = 9;
@@ -209,7 +212,7 @@
             this.wrongAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wrongAnswer.ForeColor = System.Drawing.Color.White;
             this.wrongAnswer.Location = new System.Drawing.Point(389, 630);
-            this.wrongAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.wrongAnswer.Margin = new System.Windows.Forms.Padding(4);
             this.wrongAnswer.Name = "wrongAnswer";
             this.wrongAnswer.Size = new System.Drawing.Size(667, 23);
             this.wrongAnswer.TabIndex = 10;
@@ -225,13 +228,14 @@
             this.button1.Font = new System.Drawing.Font("Verdana", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(603, 682);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(248, 54);
             this.button1.TabIndex = 11;
             this.button1.Text = "Suivant";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // score
             // 
@@ -240,14 +244,14 @@
             this.score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score.ForeColor = System.Drawing.Color.White;
             this.score.Location = new System.Drawing.Point(1227, 682);
-            this.score.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.score.Margin = new System.Windows.Forms.Padding(4);
             this.score.Name = "score";
             this.score.Size = new System.Drawing.Size(229, 23);
             this.score.TabIndex = 13;
             this.score.Text = "Score ";
             this.score.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // game
+            // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -265,8 +269,8 @@
             this.Controls.Add(this.progressTimer);
             this.Controls.Add(this.validateChoice);
             this.Controls.Add(this.appName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "game";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "Game";
             this.Size = new System.Drawing.Size(1483, 764);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
