@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlindTest
 {
-    class Musique
+    public class Musique
     {
         private readonly string path = "C:\\Users\\userinsta\\Music\\MusicBlindTest";
         private List<String> listMusic = new List<String>();
@@ -25,6 +25,8 @@ namespace BlindTest
             foreach (FileInfo file in Files)
             {
                 ListMusic.Add(file.Name);
+                if (ListMusic.Count > 100)
+                    break;
             }
         }
 
