@@ -17,12 +17,13 @@ namespace BlindTest.userController
         private string reponse = "";
         private Random getrandom = new Random();
         private List<String> choiceList = new List<string>();
+        private List<RadioButton> listRadio = new List<RadioButton>();
 
         public Game()
         {
             InitializeComponent();
             music = new Musique();
-            choiceList = music.ListMusic;
+            choiceList = new List<String>(music.ListMusic);
             onStartMusic();
         }
 
@@ -35,6 +36,7 @@ namespace BlindTest.userController
 
             music.OnPlay = getrandom.Next(0, music.ListMusic.Count);
             setRadioText();
+            reponse = "";
             wplayer = new WMPLib.WindowsMediaPlayer();
 
             wplayer.URL = music.Path + "\\" + music.ListMusic[music.OnPlay];
@@ -50,13 +52,48 @@ namespace BlindTest.userController
 
         private void setRadioText()
         {
-            String name = music.ListMusic[music.OnPlay];
-            List<string> otherChoice = getOtherChoices();
+            int position = getrandom.Next(0, 3);
+            getRadioChoices();
+            listRadio[position].Text = music.ListMusic[music.OnPlay];
+            listRadio.RemoveAt(position);
+            addOtherChoices();
+            resetRadioChecked();
         }
 
-        private List<String> getOtherChoices()
+        private void resetRadioChecked()
         {
-            throw new NotImplementedException();
+            getRadioChoices();
+            foreach (RadioButton button in listRadio)
+            {
+                if (button.Checked)
+                {
+                    button.Checked = false;
+                }
+            }
+        }
+
+        private void getRadioChoices()
+        {
+            listRadio.Clear();
+            listRadio.Add(musiqueChoice1);
+            listRadio.Add(musiqueChoice2);
+            listRadio.Add(musiqueChoice3);
+            listRadio.Add(musiqueChoice4);
+        }
+
+        private void addOtherChoices()
+        {
+            List<String> alreadyTaken = new List<string>();
+            while (listRadio.Count > 0)
+            {
+                String randChoice = choiceList[getrandom.Next(0, choiceList.Count)];
+                if (!alreadyTaken.Contains(randChoice) && randChoice != music.ListMusic[music.OnPlay])
+                {
+                    alreadyTaken.Add(randChoice);
+                    listRadio[0].Text = randChoice;
+                    listRadio.RemoveAt(0);
+                }
+            }
         }
 
         async Task playForSomeSeconds()
@@ -89,6 +126,7 @@ namespace BlindTest.userController
             }
 
             button1.Hide();
+            resetRadioColors();
             onStartMusic();
         }
 
@@ -99,37 +137,80 @@ namespace BlindTest.userController
 
         private void musiqueChoice2_CheckedChanged(object sender, EventArgs e)
         {
-            reponse = musiqueChoice1.Text;
+            reponse = musiqueChoice2.Text;
         }
 
         private void musiqueChoice3_CheckedChanged(object sender, EventArgs e)
         {
-            reponse = musiqueChoice1.Text;
+            reponse = musiqueChoice3.Text;
         }
 
         private void musiqueChoice4_CheckedChanged(object sender, EventArgs e)
         {
-            reponse = musiqueChoice1.Text;
+            reponse = musiqueChoice4.Text;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Boolean isWrong = true;
+
+            //MessageBox.Show("reponse = " + reponse);
+
             if (reponse == music.ListMusic[music.OnPlay])
             {
                 goodResponse.Show();
+                isWrong = false;
             }
             else
             {
                 wrongAnswer.Show();
             }
+            setRadioColors(isWrong, reponse);
+
 
             music.ListMusic.RemoveAt(music.OnPlay);
             wplayer.controls.stop();
             timer1.Stop();
             timer1.Tick -= new EventHandler(timer1_Tick);
             progressTimer.Value = 0;
+            isGameFinished();
             button1.Show();
         }
-        
+
+        private void isGameFinished()
+        {
+            if (music.ListMusic.Count <= 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Terminé", "La partie est finie", MessageBoxButtons.OK);
+                if (dialogResult == DialogResult.OK)
+                {
+                    this.Parent.Controls.Remove(this);
+                }
+            }
+        }
+
+        private void setRadioColors(Boolean wrong, string wronganswer)
+        {
+            getRadioChoices();
+            foreach (RadioButton button in listRadio)
+            {
+                if (wrong && button.Text == wronganswer)
+                {
+                    button.BackColor = System.Drawing.Color.FromArgb(255, 255, 68, 68);
+                }
+                if (button.Text == music.ListMusic[music.OnPlay])
+                {
+                    button.BackColor = System.Drawing.Color.FromArgb(255, 93, 210, 17);
+                }
+            }
+        }
+        private void resetRadioColors()
+        {
+            getRadioChoices();
+            foreach (RadioButton button in listRadio)
+            {
+                button.BackColor = System.Drawing.Color.FromArgb(255, 60, 60, 60);
+            }
+        }
     }
 }
