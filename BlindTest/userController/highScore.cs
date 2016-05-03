@@ -19,7 +19,7 @@ namespace BlindTest.userController
             InitializeComponent();
             Score score = new Score();
             scoreList = score.getAll();
-
+            fillArrayScore();
         }
 
         private void Score_Load(object sender, EventArgs e)
@@ -27,6 +27,17 @@ namespace BlindTest.userController
 
         }
 
-        
+        private void back_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Remove(this);
+        }
+
+        public void fillArrayScore()
+        {
+            foreach (Score score in scoreList)
+            {
+                listBox1.Items.Add(score.Pseudo + " \t" + score.Sscore);
+            }
+        }
     }
 }

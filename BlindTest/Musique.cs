@@ -9,7 +9,7 @@ namespace BlindTest
 {
     public class Musique
     {
-        private readonly string path = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Music\\MusicBlindTest";
+        public static string path = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Music\\MusicBlindTest";
         private List<String> listMusic = new List<String>();
         private int onPlay;
 

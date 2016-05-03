@@ -59,7 +59,7 @@ namespace BlindTest
                 conn.ConnectionString = "Server=(localdb)\\ProjectsV13;Database=blind_test;Trusted_Connection=true";
                 conn.Open();
                 if (conn.State == ConnectionState.Open) {
-                    String req = "SELECT * FROM Score ORDER BY score DESC LIMIT 10";
+                    String req = "SELECT TOP 10 * FROM Score ORDER BY score DESC";
                     SqlCommand cmd = new SqlCommand(req, conn);
                     using (SqlDataReader oReader = cmd.ExecuteReader()) {
                         while (oReader.Read()) {

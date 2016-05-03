@@ -31,5 +31,21 @@ namespace BlindTest
             game.BringToFront();
 
         }
+
+        private void option_Click(object sender, EventArgs e)
+        {
+            OptionCtrl opt = new OptionCtrl();
+            opt.Dock = DockStyle.Fill;
+            this.Controls.Add(opt);
+            opt.BringToFront();
+        }
+
+        private void scores_Click(object sender, EventArgs e)
+        {
+            HighScore hs = new HighScore();
+            hs.Dock = DockStyle.Fill;
+            this.Controls.Add(hs);
+            hs.BringToFront();
+        }
     }
 }

@@ -40,9 +40,10 @@
             this.goodResponse = new System.Windows.Forms.TextBox();
             this.wrongAnswer = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.score = new System.Windows.Forms.TextBox();
+            this.txtScore = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button2 = new System.Windows.Forms.Button();
+            this.back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -221,20 +222,20 @@
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // score
+            // txtScore
             // 
-            this.score.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(24)))), ((int)(((byte)(66)))));
-            this.score.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score.ForeColor = System.Drawing.Color.White;
-            this.score.Location = new System.Drawing.Point(920, 554);
-            this.score.Margin = new System.Windows.Forms.Padding(4);
-            this.score.Name = "score";
-            this.score.ReadOnly = true;
-            this.score.Size = new System.Drawing.Size(172, 19);
-            this.score.TabIndex = 13;
-            this.score.Text = "Score ";
-            this.score.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(24)))), ((int)(((byte)(66)))));
+            this.txtScore.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtScore.ForeColor = System.Drawing.Color.White;
+            this.txtScore.Location = new System.Drawing.Point(920, 554);
+            this.txtScore.Margin = new System.Windows.Forms.Padding(4);
+            this.txtScore.Name = "txtScore";
+            this.txtScore.ReadOnly = true;
+            this.txtScore.Size = new System.Drawing.Size(172, 19);
+            this.txtScore.TabIndex = 13;
+            this.txtScore.Text = "Score : 0";
+            this.txtScore.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button2
             // 
@@ -252,13 +253,30 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // back
+            // 
+            this.back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(210)))), ((int)(((byte)(17)))));
+            this.back.FlatAppearance.BorderSize = 0;
+            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.back.Font = new System.Drawing.Font("Verdana", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.back.ForeColor = System.Drawing.Color.White;
+            this.back.Location = new System.Drawing.Point(11, 19);
+            this.back.Margin = new System.Windows.Forms.Padding(4);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(186, 44);
+            this.back.TabIndex = 15;
+            this.back.Text = "< Menu";
+            this.back.UseVisualStyleBackColor = false;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.score);
+            this.Controls.Add(this.back);
+            this.Controls.Add(this.txtScore);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.wrongAnswer);
             this.Controls.Add(this.goodResponse);
@@ -291,8 +309,9 @@
         private System.Windows.Forms.TextBox goodResponse;
         private System.Windows.Forms.TextBox wrongAnswer;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox score;
+        private System.Windows.Forms.TextBox txtScore;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button back;
     }
 }

@@ -69,6 +69,12 @@
     <Compile Include="userController\HighScore.Designer.cs">
       <DependentUpon>HighScore.cs</DependentUpon>
     </Compile>
+    <Compile Include="userController\OptionCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="userController\OptionCtrl.Designer.cs">
+      <DependentUpon>OptionCtrl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="userController\HighScore.resx">
       <DependentUpon>HighScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="userController\OptionCtrl.resx">
+      <DependentUpon>OptionCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

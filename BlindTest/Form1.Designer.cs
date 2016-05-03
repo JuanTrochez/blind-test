@@ -32,6 +32,7 @@
             this.appName = new System.Windows.Forms.Label();
             this.play = new System.Windows.Forms.Button();
             this.scores = new System.Windows.Forms.Button();
+            this.option = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // appName
@@ -85,6 +86,22 @@
             this.scores.TabIndex = 2;
             this.scores.Text = "Scores";
             this.scores.UseVisualStyleBackColor = false;
+            this.scores.Click += new System.EventHandler(this.scores_Click);
+            // 
+            // option
+            // 
+            this.option.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(210)))), ((int)(((byte)(17)))));
+            this.option.FlatAppearance.BorderSize = 0;
+            this.option.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.option.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.option.ForeColor = System.Drawing.Color.Snow;
+            this.option.Location = new System.Drawing.Point(443, 383);
+            this.option.Name = "option";
+            this.option.Size = new System.Drawing.Size(200, 49);
+            this.option.TabIndex = 3;
+            this.option.Text = "Option";
+            this.option.UseVisualStyleBackColor = false;
+            this.option.Click += new System.EventHandler(this.option_Click);
             // 
             // Form1
             // 
@@ -94,6 +111,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1096, 618);
+            this.Controls.Add(this.option);
             this.Controls.Add(this.scores);
             this.Controls.Add(this.play);
             this.Controls.Add(this.appName);
@@ -109,6 +127,7 @@
         private System.Windows.Forms.Label appName;
         private System.Windows.Forms.Button play;
         private System.Windows.Forms.Button scores;
+        private System.Windows.Forms.Button option;
     }
 }
 

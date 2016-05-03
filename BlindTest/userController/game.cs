@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace BlindTest.userController
 {
@@ -20,6 +21,7 @@ namespace BlindTest.userController
         private List<String> choiceList = new List<string>();
         private List<RadioButton> listRadio = new List<RadioButton>();
         private Boolean finished = false;
+        private CancellationTokenSource cts;
 
         public Game()
         {
@@ -29,6 +31,7 @@ namespace BlindTest.userController
             music = new Musique();
             choiceList = new List<String>(music.ListMusic);
 
+            cts = new CancellationTokenSource();
 
             timer1.Enabled = true;
             timer1.Interval = 1000;
@@ -53,11 +56,18 @@ namespace BlindTest.userController
                 wplayer.controls.play();
 
                 await playForSomeSeconds();
-                if (progressTimer.Value == 0 && !finished)
+                if (progressTimer.Value == 0 && !finished && !timer1.Enabled)
                 {
                     button2_Click(this, EventArgs.Empty);
                 }
             }
+        }
+
+        async Task playForSomeSeconds()
+        {
+            cts.Token.ThrowIfCancellationRequested();
+            timer1.Start();
+            await Task.Delay(15000);
         }
 
         private void setRadioText()
@@ -104,12 +114,6 @@ namespace BlindTest.userController
                     listRadio.RemoveAt(0);
                 }
             }
-        }
-
-        async Task playForSomeSeconds()
-        {
-            timer1.Start();
-            await Task.Delay(15000);
         }
 
         void timer1_Tick(object sender, EventArgs e)
@@ -170,7 +174,8 @@ namespace BlindTest.userController
             {
                 goodResponse.Show();
                 isWrong = false;
-                player.incrementScore();
+                player.incrementScore((15 - progressTimer.Value) / 3);
+                txtScore.Text = "Score : " + player.Score;
             }
             else
             {
@@ -182,6 +187,7 @@ namespace BlindTest.userController
             music.ListMusic.RemoveAt(music.OnPlay);
             wplayer.controls.stop();
             timer1.Stop();
+            timer1.Enabled = false;
             progressTimer.Value = 0;
             button1.Show();
         }
@@ -197,6 +203,7 @@ namespace BlindTest.userController
                     Score score = new Score();
                     score.insertScore(player);
                     this.Parent.Controls.Remove(this);
+                    cts.Cancel();
                 }
             }
         }
@@ -223,6 +230,13 @@ namespace BlindTest.userController
             {
                 button.BackColor = System.Drawing.Color.FromArgb(255, 60, 60, 60);
             }
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Remove(this);
+            cts.Cancel();
+            wplayer.controls.stop();
         }
     }
 }

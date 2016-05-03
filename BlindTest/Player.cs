@@ -44,8 +44,8 @@ namespace BlindTest
             }
         }
 
-        public void incrementScore() {
-            this.score++;
+        public void incrementScore(int calcul) {
+            this.score += calcul;
         }       
 
     }
