@@ -14,39 +14,49 @@ namespace BlindTest.userController
     {
         private WMPLib.WindowsMediaPlayer wplayer;
         private Musique music;
+        private Player player;
         private string reponse = "";
         private Random getrandom = new Random();
         private List<String> choiceList = new List<string>();
         private List<RadioButton> listRadio = new List<RadioButton>();
+        private Boolean finished = false;
 
         public Game()
         {
             InitializeComponent();
+
+            player = new Player();
             music = new Musique();
             choiceList = new List<String>(music.ListMusic);
+
+
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += new EventHandler(timer1_Tick);
+
             onStartMusic();
         }
 
         public async void onStartMusic()
         {
-            timer1.Enabled = true;
-            timer1.Start();
-            timer1.Interval = 1000;
-            progressTimer.Maximum = 14;
-
-            music.OnPlay = getrandom.Next(0, music.ListMusic.Count);
-            setRadioText();
-            reponse = "";
-            wplayer = new WMPLib.WindowsMediaPlayer();
-
-            wplayer.URL = music.Path + "\\" + music.ListMusic[music.OnPlay];
-            wplayer.controls.play();
-
-            await playForSomeSeconds();
-            //validateChoice_Click(this, EventArgs.Empty);
-            if (progressTimer.Value == 14)
+            isGameFinished();
+            if (!finished)
             {
-                button2_Click(this, EventArgs.Empty);
+                progressTimer.Maximum = 14;
+
+                music.OnPlay = getrandom.Next(0, music.ListMusic.Count - 1);
+                setRadioText();
+                reponse = "";
+                wplayer = new WMPLib.WindowsMediaPlayer();
+
+                wplayer.URL = music.Path + "\\" + music.ListMusic[music.OnPlay];
+                wplayer.controls.play();
+
+                await playForSomeSeconds();
+                if (progressTimer.Value == 0 && !finished)
+                {
+                    button2_Click(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -98,7 +108,7 @@ namespace BlindTest.userController
 
         async Task playForSomeSeconds()
         {
-            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Start();
             await Task.Delay(15000);
         }
 
@@ -110,8 +120,7 @@ namespace BlindTest.userController
             }
             else
             {
-                timer1.Stop();
-                timer1.Tick -= new EventHandler(timer1_Tick);
+                //timer1.Stop();
                 progressTimer.Value = 0;
             }
         }
@@ -152,6 +161,7 @@ namespace BlindTest.userController
 
         private void button2_Click(object sender, EventArgs e)
         {
+            isGameFinished();
             Boolean isWrong = true;
 
             //MessageBox.Show("reponse = " + reponse);
@@ -160,6 +170,7 @@ namespace BlindTest.userController
             {
                 goodResponse.Show();
                 isWrong = false;
+                player.incrementScore();
             }
             else
             {
@@ -171,9 +182,7 @@ namespace BlindTest.userController
             music.ListMusic.RemoveAt(music.OnPlay);
             wplayer.controls.stop();
             timer1.Stop();
-            timer1.Tick -= new EventHandler(timer1_Tick);
             progressTimer.Value = 0;
-            isGameFinished();
             button1.Show();
         }
 
@@ -181,9 +190,12 @@ namespace BlindTest.userController
         {
             if (music.ListMusic.Count <= 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Terminé", "La partie est finie", MessageBoxButtons.OK);
+                finished = true;
+                DialogResult dialogResult = MessageBox.Show("Il n'y a plus de chansons, la partie est finie", "Terminé", MessageBoxButtons.OK);
                 if (dialogResult == DialogResult.OK)
                 {
+                    Score score = new Score();
+                    score.insertScore(player);
                     this.Parent.Controls.Remove(this);
                 }
             }

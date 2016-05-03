@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,9 @@ namespace BlindTest
         private String pseudo;
         private int score;
 
-        public Player(String pseudo) {
-            this.pseudo = pseudo;
+        public Player()
+        {
+            this.pseudo = "AAA";
             this.score = 0;
         }
 
@@ -44,7 +46,7 @@ namespace BlindTest
 
         public void incrementScore() {
             this.score++;
-        }
+        }       
 
     }
 }

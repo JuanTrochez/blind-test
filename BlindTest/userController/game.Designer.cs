@@ -230,6 +230,7 @@
             this.score.Location = new System.Drawing.Point(920, 554);
             this.score.Margin = new System.Windows.Forms.Padding(4);
             this.score.Name = "score";
+            this.score.ReadOnly = true;
             this.score.Size = new System.Drawing.Size(172, 19);
             this.score.TabIndex = 13;
             this.score.Text = "Score ";
