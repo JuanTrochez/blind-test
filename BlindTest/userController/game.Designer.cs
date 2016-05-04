@@ -82,6 +82,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(500, 277);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // musiqueChoice1
             // 

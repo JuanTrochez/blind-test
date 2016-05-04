@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Data.SqlClient;
 
 namespace BlindTest.userController
 {
@@ -27,6 +28,7 @@ namespace BlindTest.userController
         {
             InitializeComponent();
 
+            Game.updatePath();
             player = new Player();
             music = new Musique();
             choiceList = new List<String>(music.ListMusic);
@@ -197,14 +199,21 @@ namespace BlindTest.userController
             if (music.ListMusic.Count <= 0)
             {
                 finished = true;
-                DialogResult dialogResult = MessageBox.Show("Il n'y a plus de chansons, la partie est finie", "Terminé", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Il n'y a plus de chansons, la partie est finie \r Score : " + player.Score + "", "Terminé", MessageBoxButtons.OK);
                 if (dialogResult == DialogResult.OK)
                 {
-                    Score score = new Score();
-                    score.insertScore(player);
-                    this.Parent.Controls.Remove(this);
-                    cts.Cancel();
+                    string pseudo = "AAA";
+                    DialogResult inputRes = Form1.InputBox("Score", "Enregistrer le score ? (" + player.Score + ")", ref pseudo);
+                    if (inputRes == DialogResult.OK)
+                    {
+                        player.Pseudo = pseudo;
+                        Score score = new Score();
+                        score.insertScore(player);
+                    }
                 }
+
+                this.Parent.Controls.Remove(this);
+                cts.Cancel();
             }
         }
 
@@ -237,6 +246,33 @@ namespace BlindTest.userController
             this.Parent.Controls.Remove(this);
             cts.Cancel();
             wplayer.controls.stop();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public static void updatePath() {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = "Server=(localdb)\\ProjectsV13;Database=blind_test;Trusted_Connection=true";
+                conn.Open();
+                if (conn.State == ConnectionState.Open)
+                {
+                    String req = "SELECT * FROM Path";
+                    SqlCommand cmd = new SqlCommand(req, conn);
+                    using (SqlDataReader oReader = cmd.ExecuteReader())
+                    {
+                        while (oReader.Read())
+                        {
+                            Musique.path = oReader["path"].ToString();
+                        }
+                    }
+                }
+                conn.Close();
+                conn.Dispose();
+            }
         }
     }
 }
